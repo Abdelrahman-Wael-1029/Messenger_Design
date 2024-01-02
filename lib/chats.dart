@@ -24,7 +24,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   String? search;
 
-  bool SearchCompare(ChatModel chat) =>
+  bool searchCompare(ChatModel chat) =>
       search == null ||
       chat.name
           .trim()
@@ -228,7 +228,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) => buildChatItem(chats[index]),
                 separatorBuilder: (context, index) {
-                  if (SearchCompare(chats[index])) {
+                  if (searchCompare(chats[index])) {
                     return const SizedBox(
                       height: 15.0,
                     );
@@ -248,7 +248,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Widget buildChatItem(ChatModel chat) {
-    if (SearchCompare(chat)) {
+    if (searchCompare(chat)) {
       return Row(
         children: [
           // photo
