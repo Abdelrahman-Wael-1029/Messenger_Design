@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/chats.dart';
+import 'package:flutterapp/modules/login/login.dart';
 
 
 void main() {
@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ChatScreen(),  
+      home: LoginScreen(),  
     );
   }
 }
