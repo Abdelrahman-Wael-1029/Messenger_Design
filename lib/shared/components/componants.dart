@@ -6,6 +6,7 @@ Widget filedForm({
   required TextInputType keyboardType,
   required Function validate,
   IconData? suffix,
+  Function? onpressedSuffix,
   bool isPass = false,
   Color colorBorder = Colors.blue,
   required Color floatingLabelcolor,
@@ -19,7 +20,12 @@ Widget filedForm({
         color: floatingLabelcolor,
       ),
       prefixIcon: Icon(prefixIcon),
-      suffix: Icon(suffix),
+      suffix: IconButton(
+        onPressed: () {
+          onpressedSuffix!();
+        },
+        icon: Icon(suffix),
+      ),
       border: const OutlineInputBorder(),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(

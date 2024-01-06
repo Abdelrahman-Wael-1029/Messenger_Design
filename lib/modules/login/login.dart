@@ -13,6 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
     'email': false,
     'password': false,
   };
+  bool obscureText = true;
   final keyForm = GlobalKey<FormState>();
 
   @override
@@ -59,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   filedForm(
                     label: "Password",
-                    prefixIcon: Icons.email,
+                    prefixIcon: Icons.lock,
                     validate: (value) {
                       dynamic ret;
                       setState(() {
@@ -72,8 +73,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                       return ret;
                     },
-                    isPass: true,
-                    suffix: Icons.visibility,
+                    isPass: obscureText,
+                    suffix: obscureText? Icons.visibility: Icons.visibility_off,
+                    onpressedSuffix: (){
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
                     keyboardType: TextInputType.visiblePassword,
                     floatingLabelcolor:
                         errors['password']! ? Colors.red : Colors.blueAccent,
